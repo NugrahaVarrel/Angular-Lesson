@@ -1,0 +1,56 @@
+    <form action="" (ngSubmit)="onSubmit()" [formGroup]="form" class="form">
+    <div class="form-group">
+        <label for="nama">Nama:</label>
+        <input id="nama" formControlName="nama" type="text" />
+        <div *ngIf="form.get('nama')?.invalid && form.get('nama')?.touched" class="error">
+        Nama wajib diisi.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="umur">Umur:</label>
+        <input id="umur" formControlName="umur" type="number" />
+        <div *ngIf="form.get('umur')?.invalid && form.get('umur')?.touched" class="error">
+        <span *ngIf="form.get('umur')?.errors?.['required']">Umur wajib diisi.</span>
+        <span *ngIf="form.get('umur')?.errors?.['min']">Umur minimal 21 tahun.</span>
+        <span *ngIf="form.get('umur')?.errors?.['max']">Umur maksimal 55 tahun.</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="pekerjaan">Pekerjaan:</label>
+        <input id="pekerjaan" formControlName="pekerjaan" type="text" />
+        <div *ngIf="form.get('pekerjaan')?.invalid && form.get('pekerjaan')?.touched" class="error">
+        Pekerjaan wajib diisi.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="DP">DP:</label>
+        <input id="DP" formControlName="DP" type="number" />
+        <div *ngIf="form.get('DP')?.invalid && form.get('DP')?.touched" class="error">
+        <span *ngIf="form.get('DP')?.errors?.['required']">DP wajib diisi.</span>
+        <span *ngIf="form.get('DP')?.errors?.['min']">DP minimal 1.000.000.</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="hargaMotor">Harga Motor:</label>
+        <input id="hargaMotor" formControlName="hargaMotor" type="number" />
+        <div *ngIf="form.get('hargaMotor')?.invalid && form.get('hargaMotor')?.touched" class="error">
+        <span *ngIf="form.get('hargaMotor')?.errors?.['required']">Harga motor wajib diisi.</span>
+        <span *ngIf="form.get('hargaMotor')?.errors?.['min']">Harga motor minimal 5.000.000.</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="penghasilanPerBulan">Penghasilan Per Bulan:</label>
+        <input id="penghasilanPerBulan" formControlName="penghasilanPerBulan" type="number" />
+        <div *ngIf="form.get('penghasilanPerBulan')?.invalid && form.get('penghasilanPerBulan')?.touched" class="error">
+        <span *ngIf="form.get('penghasilanPerBulan')?.errors?.['required']">Penghasilan per bulan wajib diisi.</span>
+        <span *ngIf="form.get('penghasilanPerBulan')?.errors?.['min']">Penghasilan minimal 2.000.000.</span>
+        </div>
+    </div>
+        <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>

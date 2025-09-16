@@ -1,0 +1,11 @@
+<main class="main">
+  <ng-container class="container">
+
+
+    <shared-table [data]="parentUser" [title]="'Data Keseluruhan'"></shared-table>
+    <shared-form (formSubmitted)="onFormSubmitted($event)"></shared-form>
+    <shared-table [data]="penampungFilter" [title]="'Data yang Disetujui'"></shared-table>
+
+  </ng-container>
+</main>
+<router-outlet></router-outlet>

@@ -1,0 +1,83 @@
+$form-background: #f9f9f9;
+$form-border: #ddd;
+$form-focus-color: #007bff;
+$error-color: #e74c3c;
+$success-color: #2ecc71;
+
+.form {
+  background-color: $form-background;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid $form-border;
+      border-radius: 8px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      
+      &:focus {
+        border-color: $form-focus-color;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+      }
+
+      &.ng-invalid.ng-touched {
+        border-color: $error-color;
+      }
+
+      &.ng-valid.ng-touched {
+        border-color: $success-color;
+      }
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  button {
+    background-color: $form-focus-color;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($form-focus-color, 10%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+}
